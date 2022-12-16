@@ -5,5 +5,6 @@ module.exports = class empresaController {
 		this.latitude = props.latitude;
 		this.longitude = props.longitude;
 		this.indicacoes = props.indicacoes;
+		this.empresaindicadora = props.empresaindicadora;
 	}
 };

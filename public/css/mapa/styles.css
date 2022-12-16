@@ -22,3 +22,35 @@ body .container-fluid {
 margin-top: 3rem;
 height: 80vh;
 width:80vw; }
+
+.delete-empresa-btn{
+  position: fixed;
+  top: -2rem;
+  left: -2rem;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 5px;
+  size: 5px;
+}
+
+.edit-empresa-btn{
+  position: fixed;
+  top: 2rem;
+  left: -2rem;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 5px;
+  size: 5px;
+}

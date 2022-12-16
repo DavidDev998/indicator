@@ -3,7 +3,18 @@ function generateMaker(item) {
 		title: item.nome,
 		riseOnHover: true,
 	}).addTo(map);
-	marker.bindPopup(`<b>${item.nome}</b><br>${item.indicacoes * 10} pontos.`);
+	marker.bindPopup(
+		`<b>${
+			item.nome
+		}</b><button type="button" class="btn btn-danger delete-empresa-btn" onclick="deleteEmpresa(${
+			item.id
+		})"><i class="bi bi-trash Inline text"></i></button>
+		<button type="button" class="btn btn-warning edit-empresa-btn" data-bs-toggle="modal" data-bs-target="#createModal" onclick="editEmpresa(${
+			item.id
+		})"><i class="bi bi-pencil"></i></button><br>${
+			item.indicacoes * 10
+		} pontos.`,
+	);
 	return marker;
 }
 

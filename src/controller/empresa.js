@@ -6,11 +6,12 @@ const {
 	create,
 	deleteEmpresa,
 	verifyIfExists,
+	setimovelindicador,
 	findAll,
 	findOne,
 } = require("../db/empresaQueries");
 
-const { createIndicacao } = require("../db/indicacaoQueries");
+const { createIndicacao, deleteIndicacoes } = require("../db/indicacaoQueries");
 
 const functions = {
 	async create(req, res) {
@@ -29,17 +30,23 @@ const functions = {
 						result.rows[0].id,
 						req.body.empresaindicadora,
 					]);
+					await db.query(setimovelindicador, [
+						result.rows[0].id,
+						req.body.empresaindicadora,
+					]);
 					res.status(200).json({
 						message: "Empresa cadastrada com sucesso",
 					});
 				} else {
-					res.status(204).send({});
+					res.status(200).json({
+						message: "Empresa cadastrada com sucesso",
+					});
 				}
 			} else {
 				res.status(400).send("Empresa já cadastrada!");
 			}
 		} catch (err) {
-			res.status(400).send("Erro ao cadastrar empresa");
+			res.status(400).json({ message: "Erro ao editar empresa" });
 		}
 	},
 
@@ -58,13 +65,13 @@ const functions = {
 			]);
 			if (result) {
 				res.status(200).json({
-					message: "Empresa cadastrada com sucesso",
+					message: "Empresa editada com sucesso",
 				});
 			} else {
 				res.status(204).send({});
 			}
 		} catch (err) {
-			res.status(400).send("Erro ao cadastrar empresa");
+			res.status(400).json({ message: "Erro ao editar empresa" });
 		}
 	},
 
@@ -88,9 +95,12 @@ const functions = {
 	},
 
 	async delete(req, res) {
+		const deletedIndicacoes = await db.query(deleteIndicacoes, [
+			req.params.id,
+		]);
+
 		const result = await db.query(deleteEmpresa, [req.params.id]);
 		if (result.rowCount > 0) {
-			const row = new empresaModel(result.rows[0]);
 			res.status(200).json({ message: "Empresa removida com sucesso" });
 		} else {
 			res.status(204).send({});
