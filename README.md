@@ -16,7 +16,8 @@ CREATE TABLE empresa (
     id SERIAL PRIMARY KEY,
     nome text NOT NULL,
     latitude text,
-    longitude text
+    longitude text,
+    empresaindicadora int
 );
 
 CREATE TABLE indicacao (
@@ -28,6 +29,8 @@ CREATE TABLE indicacao (
 ALTER TABLE indicacao
 ADD FOREIGN KEY (empresa) REFERENCES empresa(id),
 ADD FOREIGN KEY (empresaIndicadora) REFERENCES empresa(id);
+
+
 ```
 
 Após isso configure a conexão com o database no arquivo /src/db/main.js .
