@@ -1,16 +1,16 @@
 # Indicator
 ## Mapa com cadastro de empresas onde é mostrado a localização da empresa cadastrada e suas respectivas informações.
 
->Foi utilizando no desenvolvimento
+>Foi utilizado no desenvolvimento
  - NodeJS para o back;
  - EJS para o front;
  - Postgres como banco de dados;
  
->Eu queria ter utilizado react no front, mas para não separar os projetos e manter algo mais compácto, fácil de rodar e entender resolvi utilizar ejs para montar o front em tempo de execiçõa.
+>Eu queria ter utilizado react no front, mas para não separar os projetos e manter algo mais compácto, fácil de rodar e entender resolvi utilizar ejs para montar o front em tempo de execução.
 
-##Para rodar o projeto basta:
+## Para rodar o projeto basta:
 
-###rodar a query no banco de dados:
+### rodar a query no banco de dados:
 ```
 CREATE TABLE empresa (
     id SERIAL PRIMARY KEY,
@@ -18,9 +18,6 @@ CREATE TABLE empresa (
     latitude text,
     longitude text
 );
-
-ALTER TABLE empresa
-ADD FOREIGN KEY (id) REFERENCES empresa(id);
 
 CREATE TABLE indicacao (
     id SERIAL PRIMARY KEY,
