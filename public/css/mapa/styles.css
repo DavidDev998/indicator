@@ -1,0 +1,24 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+body .container-fluid {
+  padding: 1rem ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  background-image: linear-gradient(#74ebd5, #ACB6E5);
+  height: 100vh;
+}
+
+.container-fluid .add-empresa-btn{
+  display: flex;
+  gap: 1rem;
+}
+
+#map { 
+margin-top: 3rem;
+height: 80vh;
+width:80vw; }
